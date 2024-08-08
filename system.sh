@@ -16,6 +16,7 @@ done
 
 DEVICE_ID="6"
 case $DEVICE_NAME in
+  pico-mini-a) DEVICE_ID="1" ;;
   pico-mini-b) DEVICE_ID="6" ;;
   pico-plus) DEVICE_ID="7" ;;
   pico-pro-max) DEVICE_ID="8" ;;
@@ -53,4 +54,6 @@ popd || exit
 
 rm -rf output
 mkdir -p output
+ls -hl sdk/output/image/
+tar cvzf output/$DEVICE_NAME.tar.gz sdk/output/image
 cp sdk/output/image/update.img "output/$DEVICE_NAME-sysupgrade.img"
